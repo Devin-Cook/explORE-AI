@@ -3,7 +3,7 @@
 </p>
 
 <h1 align="center">
-AI Pair Programming in Your Terminal
+AI Pair Programming in Your Terminal - Branched Version for ORE use
 </h1>
 
 
