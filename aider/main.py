@@ -38,6 +38,8 @@ from aider.watch import FileWatcher
 from .dump import dump  # noqa: F401
 
 
+PATH_TO_ORE = "./Engine"
+
 def check_config_files_for_yes(config_files):
     found = False
     for config_file in config_files:
@@ -439,15 +441,10 @@ def sanity_check_repo(repo, io):
 def main(argv=None, input=None, output=None, force_git_root=None, return_coder=False):
     report_uncaught_exceptions()
 
+    git_root = PATH_TO_ORE
+
     if argv is None:
         argv = sys.argv[1:]
-
-    if git is None:
-        git_root = None
-    elif force_git_root:
-        git_root = force_git_root
-    else:
-        git_root = get_git_root()
 
     conf_fname = Path(".aider.conf.yml")
 
@@ -676,7 +673,7 @@ def main(argv=None, input=None, output=None, force_git_root=None, return_coder=F
             analytics.event("exit", reason="Invalid directory input")
             return 1
 
-    git_dname = None
+    git_dname = PATH_TO_ORE
     if len(all_files) == 1:
         if Path(all_files[0]).is_dir():
             if args.git:
