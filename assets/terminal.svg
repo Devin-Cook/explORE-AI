@@ -40,7 +40,7 @@
   <!-- Content block -->
   <g transform="translate(20, 50)">
     <text class="terminal-text command" x="0" y="0">
-      $ explore --openai-api-key=xyz --userguide
+      $ explore-ai --openai-api-key=xyz --userguide
     </text>
     <text class="terminal-text system" x="0" y="40">
       hello how can i help you
