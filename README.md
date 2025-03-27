@@ -1,5 +1,5 @@
 <p align="center">
-    <a href="https://github.com/Devin-Cook/explORE-AI"><img src="./assets/explore_logo.svg" alt="explORE-AI Logo" width="300"></a>
+    <a href="https://github.com/Devin-Cook/explORE-AI"><img src="./assets/explore_logo.svg" alt="explORE-AI Logo" width="5000"></a>
 </p>
 
 # explORE-AI — A Specialized Fork of Aider for Open Source Risk Engine (ORE)
