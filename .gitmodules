@@ -1,0 +1,7 @@
+[submodule "Engine"]
+    path = Engine
+    url = https://github.com/OpenSourceRisk/Engine
+
+[submodule "aider"]
+    path = aider
+    url = https://github.com/Devin-Cook/aider
