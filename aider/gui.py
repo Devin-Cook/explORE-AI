@@ -38,7 +38,7 @@ class CaptureIO(InputOutput):
 
 def search(text=None):
     results = []
-    for root, _, files in os.walk("aider"):
+    for root, _, files in os.walk("explORE-AI"):
         for file in files:
             path = os.path.join(root, file)
             if not text or text in path:
@@ -148,20 +148,13 @@ class GUI:
 
     def do_sidebar(self):
         with st.sidebar:
-            st.title("Aider")
+            st.image(urls.ORE_Image, caption=None, width=None, use_column_width=None, clamp=False, channels="RGB", output_format="auto", use_container_width=False)
+            st.title("explORE-AI")
             # self.cmds_tab, self.settings_tab = st.tabs(["Commands", "Settings"])
-
             # self.do_recommended_actions()
             self.do_add_to_chat()
             self.do_recent_msgs()
             self.do_clear_chat_history()
-            # st.container(height=150, border=False)
-            # st.write("### Experimental")
-
-            st.warning(
-                "This browser version of aider is experimental. Please share feedback in [GitHub"
-                " issues](https://github.com/Aider-AI/aider/issues)."
-            )
 
     def do_settings_tab(self):
         pass
@@ -182,7 +175,7 @@ class GUI:
     def do_add_to_chat(self):
         # with st.expander("Add to the chat", expanded=True):
         self.do_add_files()
-        self.do_add_web_page()
+        # self.do_add_web_page()
 
     def do_add_files(self):
         fnames = st.multiselect(
@@ -191,10 +184,10 @@ class GUI:
             default=self.state.initial_inchat_files,
             placeholder="Files to edit",
             disabled=self.prompt_pending(),
-            help=(
-                "Only add the files that need to be *edited* for the task you are working"
-                " on. Aider will pull in other relevant code to provide context to the LLM."
-            ),
+            # help=(
+            #     "Only add the files that need to be *edited* for the task you are working"
+            #     " on. Aider will pull in other relevant code to provide context to the LLM."
+            # ),
         )
 
         for fname in fnames:
@@ -318,10 +311,12 @@ class GUI:
                     line = text.splitlines()[0]
                     with self.messages.expander(line):
                         st.text(text)
-                elif role in ("user", "assistant"):
-                    with st.chat_message(role):
+                elif role == "user":
+                    with st.chat_message("user"):
                         st.write(msg["content"])
-                        # self.cost()
+                elif role == "assistant":
+                    with st.chat_message("assistant", avatar=urls.ORE_Favicon):
+                        st.write(msg["content"])
                 else:
                     st.dict(msg)
 
@@ -418,7 +413,7 @@ class GUI:
         self.max_reflections = 3
 
         while prompt:
-            with self.messages.chat_message("assistant"):
+            with self.messages.chat_message("assistant", avatar=urls.ORE_Favicon):
                 res = st.write_stream(self.coder.run_stream(prompt))
                 self.state.messages.append({"role": "assistant", "content": res})
                 # self.cost()
@@ -524,12 +519,12 @@ class GUI:
 def gui_main():
     st.set_page_config(
         layout="wide",
-        page_title="Aider",
-        page_icon=urls.favicon,
+        page_title="explORE-AI",
+        page_icon=urls.ORE_Favicon,
         menu_items={
-            "Get Help": urls.website,
-            "Report a bug": "https://github.com/Aider-AI/aider/issues",
-            "About": "# Aider\nAI pair programming in your browser.",
+            "Get Help": urls.ORE_GitHub,
+            # "Report a bug": "https://github.com/Aider-AI/aider/issues",
+            "About": "# explORE-AI assistant for understanding the ORE codebase", 
         },
     )
 

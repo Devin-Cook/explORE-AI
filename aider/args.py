@@ -611,6 +611,12 @@ def get_parser(default_config_files, git_root):
         default=False,
     )
     group.add_argument(
+        "--userguide",
+        action="store_true",
+        help="Use contect from ORE User Guide",
+        default=False,
+    )
+    group.add_argument(
         "--copy-paste",
         action=argparse.BooleanOptionalAction,
         default=False,

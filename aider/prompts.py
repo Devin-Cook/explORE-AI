@@ -30,7 +30,7 @@ undo_command_reply = (
 )
 
 added_files = (
-    "I added these files to the chat: {fnames}\nLet me know if there are others we should add."
+    "I added these files to the chat: {fnames}\nLet me know if there are others we should add. If you need more context from other existing files not already added to the chat, you *MUST* tell me their full path names and ask me to *add the files to the chat* end your reply and wait for my approval. you can keep asking if you then dicide you need to view more files."
 )
 
 

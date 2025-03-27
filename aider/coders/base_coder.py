@@ -323,6 +323,7 @@ class Coder:
         file_watcher=None,
         auto_copy_context=False,
         auto_accept_architect=True,
+        userguide=False,
     ):
         # Fill in a dummy Analytics if needed, but it is never .enable()'d
         self.analytics = analytics if analytics is not None else Analytics()
@@ -409,6 +410,7 @@ class Coder:
 
         self.commands = commands or Commands(self.io, self)
         self.commands.coder = self
+        self.userguide = userguide
 
         self.repo = repo
         if use_git and self.repo is None:
@@ -519,6 +521,23 @@ class Coder:
                 self.io.tool_output("JSON Schema:")
                 self.io.tool_output(json.dumps(self.functions, indent=4))
 
+    def get_userguide_messages(self):
+        userguide_messages = []
+        query = self.cur_messages[-1]["content"]
+        userguide_messages.append(dict(
+            role="user",
+            content=("You may also use these *relevant sections of the ORE User Guide* so you can use them as additional context. If you reference these sections in your response, make sure to include section number.")
+        ))
+
+        from .userguide.query import query_message
+        userguide_messages.append((dict(role="user", content=query_message(query))))
+
+        userguide_messages.append(dict(
+            role="assistant",
+            content="Ok, I will use these sections as relevant context. If I mention these sections in my response, I will include the sectoin number."
+        ))
+        return userguide_messages
+    
     def setup_lint_cmds(self, lint_cmds):
         if not lint_cmds:
             return
@@ -1231,7 +1250,24 @@ class Coder:
         chunks = self.format_chat_chunks()
         if self.add_cache_headers:
             chunks.add_cache_control_headers()
-
+        
+        # Handle userguide feature correctly - don't try to add lists to ChatChunks objects
+        if self.userguide:
+            try:
+                # Temporarily disable userguide feature to prevent errors
+                self.userguide = False
+                # Get the messages manually without using += operator
+                for msg in self.get_userguide_messages():
+                    if isinstance(chunks.cur, list):
+                        chunks.cur.append(msg)
+            except Exception as e:
+                # Log the error but continue
+                if hasattr(self, 'io'):
+                    self.io.tool_error(f"Error adding userguide messages: {e}")
+            finally:
+                # Restore the userguide setting
+                self.userguide = True
+        
         return chunks
 
     def warm_cache(self, chunks):
