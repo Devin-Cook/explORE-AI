@@ -64,11 +64,9 @@ We owe a **huge thanks** to [Aider](https://github.com/Aider-AI/aider) for provi
 ```bash
 # 1. Clone this explORE-AI repository
 git clone https://github.com/Devin-Cook/explORE-AI.git
-cd explORE-AI
 
 # 2. Install
-python -m pip install .
-aider-install
+python -m pip install ./explore-ai
 
 # 3. Navigate to your ORE codebase
 cd /path/to/OpenSourceRiskEngine
