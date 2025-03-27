@@ -1,0 +1,43 @@
+<svg width="600" height="120" viewBox="0 0 600 120" xmlns="http://www.w3.org/2000/svg">
+  <!-- Rounded slick background -->
+  <rect width="600" height="120" fill="#333333" rx="15" ry="15"/>
+  
+  <!-- Group all logo elements and center them horizontally -->
+  <g transform="translate(300,0)">
+    <!-- 'expl' text, centered -->
+    <text x="-135" y="78" text-anchor="middle" font-family="Arial" font-size="56" fill="#ffffff">expl</text>
+    
+    <!-- Stylized 'O' (using colored partial ring paths), centered at -50 -->
+    <g transform="translate(-50,60)">
+      <!-- Arc #1: Top Left - Dark Blue -->
+      <path d="M -16.07,19.15
+               A 25 25 0 0 1 -21.65,-12.50"
+            fill="none"
+            stroke="#005072"
+            stroke-width="10"
+            stroke-linecap="round"/>
+      
+      <!-- Arc #2: Top Right - Dark Blue -->
+      <path d="M -21.65,-12.50
+               A 25 25 0 0 1 23.49,-8.55"
+            fill="none"
+            stroke="#005072"
+            stroke-width="10"
+            stroke-linecap="round"/>
+      
+      <!-- Arc #3: Bottom - Light Blue -->
+      <path d="M 23.49,-8.55
+               A 25 25 0 0 1 -16.07,19.15"
+            fill="none"
+            stroke="#00B5E2"
+            stroke-width="10"
+            stroke-linecap="round"/>
+    </g>
+    
+    <!-- 'RE' text, centered -->
+    <text x="19" y="78" text-anchor="middle" font-family="Arial" font-size="56" fill="#ffffff">RE</text>
+    
+    <!-- '-AI' text, centered -->
+    <text x="93" y="78" text-anchor="middle" font-family="Arial" font-size="56" fill="#00B5E2">-AI</text>
+  </g>
+</svg>

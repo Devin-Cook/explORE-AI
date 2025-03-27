@@ -1,0 +1,154 @@
+<svg
+    version="1.1"
+    width="1000"
+    height="1400"
+    viewBox="0 0 1000 1400"
+    xmlns="http://www.w3.org/2000/svg">
+
+  <!-- Define background gradient only -->
+  <defs>
+    <linearGradient id="terminal-bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1e1e1e"/>
+      <stop offset="100%" stop-color="#2a2a2a"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Terminal background with rounded corners -->
+  <rect
+    x="0" y="0"
+    width="1000" height="1400"
+    rx="20" ry="20"
+    fill="url(#terminal-bg)"
+  />
+
+  <!-- Text styles with no filters -->
+  <style>
+    .terminal-text {
+      font-family: "Consolas", "Courier New", monospace;
+      font-size: 18px;
+      white-space: pre;
+    }
+    .command,
+    .user {
+      fill: #0ff07f;
+    }
+    .system {
+      fill: #ffd700;
+    }
+  </style>
+
+  <!-- Content block -->
+  <g transform="translate(20, 50)">
+    <text class="terminal-text command" x="0" y="0">
+      $ explore --openai-api-key=xyz --userguide
+    </text>
+    <text class="terminal-text system" x="0" y="40">
+      hello how can i help you
+    </text>
+    <text class="terminal-text user" x="0" y="80">
+      Walk me through ORE&#39;s xVA capabilities
+    </text>
+    <text class="terminal-text system" x="0" y="120">
+      To understand ORE&#39;s xVA capabilities, we can look at several key
+    </text>
+    <text class="terminal-text system" x="0" y="145">
+      components and examples within the codebase and user guide:
+    </text>
+    <text class="terminal-text system" x="0" y="185">
+      User Guide Context:
+    </text>
+    <text class="terminal-text system" x="0" y="210">
+      Section 3: Describes the overall data flow in ORE, including the steps
+    </text>
+    <text class="terminal-text system" x="0" y="235">
+      for generating xVA reports. The process involves loading the portfolio,
+    </text>
+    <text class="terminal-text system" x="0" y="260">
+      building yield curves, calibrating models, and performing market
+    </text>
+    <text class="terminal-text system" x="0" y="285">
+      simulations to generate NPV cubes. These cubes are then used to compute
+    </text>
+    <text class="terminal-text system" x="0" y="310">
+      various XVAs like CVA, DVA, FVA, and MVA.
+    </text>
+    <text class="terminal-text system" x="0" y="350">
+      Section 5.35: Demonstrates how ORE can switch perspectives in XVA
+    </text>
+    <text class="terminal-text system" x="0" y="375">
+      calculations with minimal changes, highlighting flexibility in xVA
+    </text>
+    <text class="terminal-text system" x="0" y="400">
+      analysis.
+    </text>
+    <text class="terminal-text system" x="0" y="440">
+      Section 5.60: Shows ORE&#39;s capability to handle xVA simulations using
+    </text>
+    <text class="terminal-text system" x="0" y="465">
+      American Monte-Carlo with overlapping close-out grids.
+    </text>
+    <text class="terminal-text system" x="0" y="505">
+      Section 5.67: Discusses XVA stress testing, which uses the stresstest
+    </text>
+    <text class="terminal-text system" x="0" y="530">
+      framework to analyze the impact of market shifts on xVA metrics.
+    </text>
+    <text class="terminal-text system" x="0" y="570">
+      Codebase Context:
+    </text>
+    <text class="terminal-text system" x="0" y="595">
+      OREAnalytics/orea/app/parameters.cpp and parameters.hpp: These files
+    </text>
+    <text class="terminal-text system" x="0" y="620">
+      define the Parameters class, which is crucial for loading and managing
+    </text>
+    <text class="terminal-text system" x="0" y="645">
+      configuration data, including those related to xVA calculations.
+    </text>
+    <text class="terminal-text system" x="0" y="685">
+      OREData/ored/portfolio/enginefactory.cpp and enginefactory.hpp: These
+    </text>
+    <text class="terminal-text system" x="0" y="710">
+      files are likely involved in setting up the pricing engines and market
+    </text>
+    <text class="terminal-text system" x="0" y="735">
+      configurations necessary for xVA calculations.
+    </text>
+    <text class="terminal-text system" x="0" y="775">
+      OREData/ored/utilities/xmlutils.cpp and xmlutils.hpp: These files
+    </text>
+    <text class="terminal-text system" x="0" y="800">
+      handle XML parsing and serialization, which are essential for reading
+    </text>
+    <text class="terminal-text system" x="0" y="825">
+      and writing configuration and result files related to xVA.
+    </text>
+    <text class="terminal-text system" x="0" y="865">
+      Examples:
+    </text>
+    <text class="terminal-text system" x="0" y="890">
+      Example_35: Demonstrates switching perspectives in xVA calculations.
+    </text>
+    <text class="terminal-text system" x="0" y="915">
+      Example_60: Illustrates xVA simulations with overlapping close-out
+    </text>
+    <text class="terminal-text system" x="0" y="940">
+      grids.
+    </text>
+    <text class="terminal-text system" x="0" y="965">
+      Example_67: Provides a demonstration of XVA stress testing.
+    </text>
+    <text class="terminal-text system" x="0" y="1005">
+      To dive deeper into ORE&#39;s xVA capabilities, you can explore the
+    </text>
+    <text class="terminal-text system" x="0" y="1030">
+      specific examples and the mentioned files in the codebase. If you want
+    </text>
+    <text class="terminal-text system" x="0" y="1055">
+      to look at any specific file or example in detail, please let me know,
+    </text>
+    <text class="terminal-text system" x="0" y="1080">
+      and I can guide you further!
+    </text>
+  </g>
+</svg>
